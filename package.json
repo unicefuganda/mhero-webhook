@@ -1,0 +1,13 @@
+{
+    "name": "mhero-webhooks",
+    "description": "A collection of webhook endpoints for mhero community services",
+    "version": "0.0.1",
+    "devDependencies": {
+        "grunt": "0.4.1",
+        "grunt-cli": "*",
+        "grunt-env": "0.4.1",
+        "grunt-jasmine-node": "~0.2.1",
+        "jasmine-reporters": "~0.2.1",
+        "jasmine-node": "~2.0.0"
+    }
+}
