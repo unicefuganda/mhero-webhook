@@ -1,6 +1,9 @@
 var Q = require('q');
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('messagedb_staging.sqlite3');
+var Config = require(__dirname + '/../src/config');
+var config = new Config();
+
+var db = new sqlite3.Database(config.database);
 
 var Message = function(){
 };

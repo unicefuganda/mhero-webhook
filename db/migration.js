@@ -1,5 +1,3 @@
-process.env.dev =  { HERO_ENV: 'dev' }
-
 var Config = require(__dirname + '/../src/config');
 var config = new Config();
 var sqlite3 = require('sqlite3').verbose();
