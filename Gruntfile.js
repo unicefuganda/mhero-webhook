@@ -1,3 +1,5 @@
+var env = require('env')
+
 module.exports = function (grunt) {
 
     // Project configuration.
@@ -9,6 +11,7 @@ module.exports = function (grunt) {
         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
             '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
             '* Copyright (c) <%= grunt.template.today("yyyy") %> ',
+        env: env.dev =  { HERO_ENV: 'dev' },
         jasmine_node: {
             options: {
                 forceExit: true,
@@ -27,7 +30,8 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-jasmine-node');
+    grunt.loadNpmTasks('grunt-env');
 
     // Default task.
-    grunt.registerTask('default', ['jasmine_node:unit']);
+    grunt.registerTask('default', ['env', 'jasmine_node:unit']);
 };
