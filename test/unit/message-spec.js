@@ -1,6 +1,4 @@
 var Message = require(__dirname + '/../../src/message')
-var Config = require(__dirname + '/../../src/config');
-var config = new Config();
 
 describe('Message', function() {
 	describe('all', function() {

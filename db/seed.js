@@ -1,3 +1,4 @@
+
 var Config = require(__dirname + '/../src/config');
 var config = new Config();
 var sqlite3 = require('sqlite3').verbose();
