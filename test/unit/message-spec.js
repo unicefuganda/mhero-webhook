@@ -15,6 +15,18 @@ describe('Message', function() {
 				done();
 			});
 		});
+	});
 
+	describe('getByPhonee', function() {
+		it('gets a contact by phone number', function(done) {
+			Message.getByPhone('0788123123').then(function(message) {
+				console.log(message);
+				expect(message.text).toBe('Hello this is a test sms')
+				expect(message.phone).toBe('0788123123');
+				expect(message.rapidProId).toBe(22)
+				done();
+			});
+
+		});
 	});
 });
