@@ -3,7 +3,21 @@ var sqlite3 = require('sqlite3').verbose();
 var Config = require(__dirname + '/../src/config');
 var config = new Config();
 
-var Message = function() {};
+var Message = function(reqMessage) {
+		this.text = reqMessage.text;
+		this.relayer_phone = reqMessage.relayer_phone;
+		this.time = reqMessage.time;
+		this.rapidProId = reqMessage.id;
+		this.phone = reqMessage.phone;
+
+		this.formattedForSQlite = function(){
+			return {
+				rapidProId: this.rapidProId,
+				text: this.text,
+				phone: this.phone
+			}
+		}
+};
 
 Message.all = function() {
 	var db = new sqlite3.Database(config.database);
