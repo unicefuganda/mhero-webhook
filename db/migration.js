@@ -7,7 +7,7 @@ var Migration = {}
 
 Migration.run = function(){
 	db.serialize(function() {
-	  db.run('CREATE TABLE IF NOT EXISTS messages (id int, rapidProId int, text TEXT, phone varchar(50), createdAt DATE)');
+	  db.run("CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY, rapidProId INTEGER, text TEXT, phone VARCHAR(50), createdAt DATE DEFAULT (datetime('now','localtime')))");
 	});
 	// INSERT INTO messages (id, rapid_pro_id, text, phone, created_at) values (1, 22, "Hello this is a test sms","0788123123", "2013-01-01T05:34:34.034");
 	db.close();

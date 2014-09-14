@@ -20,13 +20,23 @@ describe('Message', function() {
 	describe('getByPhonee', function() {
 		it('gets a contact by phone number', function(done) {
 			Message.getByPhone('0788123123').then(function(message) {
-				console.log(message);
 				expect(message.text).toBe('Hello this is a test sms')
 				expect(message.phone).toBe('0788123123');
 				expect(message.rapidProId).toBe(22)
 				done();
 			});
 
+		});
+	});
+	describe('create', function() {
+		message = { rapidProId: 4030, text: 'Hello this is a test sms', phone: '0779432918' }
+		it('creates a new message in the database', function(done) {
+			Message.create(message).then(function(message) {
+				expect(message.text).toBe('Hello this is a test sms')
+				expect(message.phone).toBe('0779432918');
+				expect(message.rapidProId).toBe(4030)
+				done();
+			});
 		});
 	});
 });

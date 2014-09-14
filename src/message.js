@@ -24,14 +24,13 @@ Message.create = function(message) {
 	var db = new sqlite3.Database(config.database);
 
 	db.serialize(function() {
-		var stmt = db.prepare("INSERT INTO messages (rapidProId, text, phone) VALUES (22, 'Hello this is a test sms','0788123123')");
-		stmt.run();
-		stmt.finalize(function() {
-			re
+		var stmt = db.prepare('INSERT INTO messages (rapidProId, text, phone) VALUES (?, ?, ?)');
+		stmt.run(message.rapidProId, message.text, message.phone);
+		stmt.finalize(function(){
+			deffered.resolve(Message.getByPhone(message.phone))
 		});
 	});
 
-	deffered.resolve([])
 	db.close();
 	return deffered.promise;
 }
